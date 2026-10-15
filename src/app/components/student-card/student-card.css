@@ -1,0 +1,71 @@
+/* =====================================================================
+   FILE: components/student-card/student-card.css
+   WHAT: Styles for one student card (box, photo, text, hover).
+   WHY:  Angular scopes these rules to this component only, so .card
+         here can never leak into other pages.
+   ===================================================================== */
+
+/* The whole card: a white rounded box that stacks its children vertically. */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+/* Hover: the card lifts slightly and gets a soft shadow, so it feels clickable. */
+.card:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* The portrait: full card width, always the same 310:246 shape, never stretched. */
+.card__photo {
+  width: 100%;
+  aspect-ratio: 310 / 246;
+  object-fit: cover;
+}
+
+/* The text area under the photo: a padded column with even gaps. */
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+}
+
+/* Name on the left, arrow on the right, on one row. */
+.card__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Student name: Inter, semibold, 19px. */
+.card__name {
+  font: 600 19px/1.2 var(--font-sans);
+}
+
+/* Arrow icon: small and red (the SVG uses currentColor, so `color` paints it). */
+.card__arrow {
+  width: 18px;
+  height: 18px;
+  color: var(--color-red);
+}
+
+/* Meta line: tiny, uppercase, spaced out, gray. */
+.card__meta {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Quote: Lora, italic, 17px. */
+.card__quote {
+  font: italic 400 17px/1.4 var(--font-serif);
+}

@@ -8,6 +8,8 @@ import { Routes } from '@angular/router';
 
 import { StudentsPage } from './pages/students-page/students-page';
 import { PlaceholderPage } from './pages/placeholder-page/placeholder-page';
+import { StaffPage } from './pages/staff-page/staff-page';
+
 
 export const routes: Routes = [
   // STEP 1: The landing page. An empty path '' means "the home URL".
@@ -16,7 +18,7 @@ export const routes: Routes = [
   // STEP 2: Pages we have NOT designed/built yet use one placeholder page.
   // `data` lets us pass a small piece of information (the title) to it.
   // TIP: When you build the real page, replace `PlaceholderPage` with it.
-  { path: 'teachers', component: PlaceholderPage, data: { title: 'Teachers & Staff' } },
+  { path: 'teachers', component: StaffPage, data: { title: 'Teachers & Staff' } },
   { path: 'gallery', component: PlaceholderPage, data: { title: 'Gallery' } },
   { path: 'login', component: PlaceholderPage, data: { title: 'Student login' } },
 
@@ -27,4 +29,6 @@ export const routes: Routes = [
   // STEP 4: Wildcard. Any unknown URL goes back to the home page.
   // COMMON MISTAKE: this MUST be last. Routes are matched top to bottom.
   { path: '**', redirectTo: '' },
+
+  { path: 'teachers', component: StaffPage, title: 'Teachers & Staff · GIU Yearbook' }
 ];
